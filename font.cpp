@@ -20,4 +20,14 @@ namespace watchfont{
   {
 	return kanji1[n];
   }
+  //%
+  Buffer getFontData(int charCode) {
+  	if(charCode < MICROBIT_FONT_ASCII_START || charCode > MICROBIT_FONT_ASCII_END){
+    	return PXT_CREATE_BUFFER(NULL, 5);
+  }
+  MicroBitFont font = MicroBitFont::getSystemFont();
+  	int offset = (charCode - MICROBIT_FONT_ASCII_START) * 5;
+
+	return PXT_CREATE_BUFFER((uint8_t *)(font.characters + offset), 5);
+  }
 }
