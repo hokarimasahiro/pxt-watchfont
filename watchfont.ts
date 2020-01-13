@@ -190,7 +190,7 @@ namespace watchfont {
      */
     //% blockId="曜日を表示" block="曜日を表示 %w=watchfont_getWeekday"
     //% weight=92 blockGap=8
-    export function showWeekday(w: weekdays): void {
+    export function showWeekday(w: number): void {
         let weekday: string
         let svShift = getShift()
         switch (w) {
