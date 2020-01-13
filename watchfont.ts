@@ -11,7 +11,7 @@ enum rotate {
     //% block="right"
     right = 3
 }
-enum weekday {
+enum weekdays {
     //% block="日"
     sun = 0,
     //% block="月"
@@ -43,18 +43,14 @@ enum weekday {
 }
 //% weight=100 color=#0fbc11 icon="\u270f" block="Proportional Font"
 namespace watchfont {
-    //% shim=watchfont::getNumber
-    function getNumber(n: number): number {
+    //% shim=watchfont::getAlfa
+    function getAlfa(n: number): number {
         return 0;
     }
 
     //% shim=watchfont::getKanji
     function getKanji(n: number): number {
         return 0;
-    }
-    //% shim=watchfont::getFontData
-    function getFontData(index: number): Buffer {
-        return pins.createBuffer(5)
     }
 
     declare const enum mojiSHift {
@@ -70,12 +66,12 @@ namespace watchfont {
         let fontNum: number
         let fontStr: string
 
-        if ((charCode >= 0x30) && (charCode <= 0x39))
-            fontNum = getNumber(charCode - 0x30);
+        if ((charCode >= 0x20) && (charCode <= 0x3f))
+            fontNum = getAlfa(charCode - 0x20);
         else if ((kanaShift == mojiSHift.Kanji) && (charCode >= 0x60) && (charCode <= 0x6f))
             fontNum = getKanji(charCode - 0x60);
         else
-            return -1;
+            fontNum = 0;
 
         return fontNum;
     }
@@ -182,6 +178,11 @@ namespace watchfont {
         setShift(shiftKanji())  // 漢字モードにする
         showString(m.toString() + "b" + (d < 10 ? "0" : "") + d.toString() + "a")
         setShift(svSHift)  // シフト状態を元に戻す
+    }
+    //% weight=93 blockGap=8
+    //% blockId="曜日" block="%weekday"
+    export function colors(weekday: weekdays): number {
+        return weekday;
     }
     /**
      * TODO:曜日を表示する
