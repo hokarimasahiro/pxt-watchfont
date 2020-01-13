@@ -1,0 +1,19 @@
+{
+    "name": "pxt-profont",
+    "version": "0.0.0",
+    "description": "",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "watchfont.ts",
+        "shims.d.ts",
+        "font.cpp"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": false,
+    "preferredEditor": "tsprj"
+}
