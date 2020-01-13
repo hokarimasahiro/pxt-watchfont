@@ -52,6 +52,10 @@ namespace watchfont {
     function getKanji(n: number): number {
         return 0;
     }
+    //% shim=watchfont::getFontData
+    function getFontData(index: number): Buffer {
+        return pins.createBuffer(5)
+    }
 
     declare const enum mojiSHift {
         Alfa = 0,
