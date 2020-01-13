@@ -180,7 +180,7 @@ namespace watchfont {
         setShift(svSHift)  // シフト状態を元に戻す
     }
     //% weight=93 blockGap=8
-    //% blockId="曜日" block="%weekday"
+    //% blockId="getWeekday" block="%weekday"
     export function getWeekday(weekday: weekdays): number {
         return weekday;
     }
@@ -188,7 +188,7 @@ namespace watchfont {
      * TODO:曜日を表示する
      * @param w 曜日。, eg: 3
      */
-    //% blockId="曜日を表示" block="曜日を表示 %w=watchfont_weekdays"
+    //% blockId="曜日を表示" block="曜日を表示 %w=watchfont_getWeekday"
     //% weight=92 blockGap=8
     export function showWeekday(w: weekdays): void {
         let weekday: string
