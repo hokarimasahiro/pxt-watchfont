@@ -188,7 +188,7 @@ namespace watchfont {
      * TODO:曜日を表示する
      * @param w 曜日。, eg: 3
      */
-    //% blockId="曜日を表示" block="曜日を表示 %w"
+    //% blockId="曜日を表示" block="曜日を表示 %w=watchfont_weekdays"
     //% weight=92 blockGap=8
     export function showWeekday(w: weekdays): void {
         let weekday: string
