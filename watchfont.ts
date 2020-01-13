@@ -12,33 +12,33 @@ enum rotate {
     right = 3
 }
 enum weekdays {
-    //% block="日"
+    //% block="日曜日"
     sun = 0,
-    //% block="月"
+    //% block="月曜日"
     mon = 1,
-    //% block="火"
+    //% block="火曜日"
     tue = 2,
-    //% block="水"
+    //% block="水曜日"
     wed = 3,
-    //% block="木"
+    //% block="木曜日"
     thu = 4,
-    //% block="金"
+    //% block="金曜日"
     fri = 5,
-    //% block="土"
+    //% block="土曜日"
     sat = 6,
-    //% block="日"
+    //% block="Sunday"
     sune = 7,
-    //% block="月"
+    //% block="Monday"
     mone = 8,
-    //% block="火"
+    //% block="Tuesday"
     tuee = 9,
-    //% block="水"
+    //% block="Wednesday"
     wede = 10,
-    //% block="木"
+    //% block="Thursday"
     thue = 11,
-    //% block="金"
+    //% block="Friday"
     frie = 12,
-    //% block="土"
+    //% block="Saturday"
     sate = 13
 }
 //% weight=100 color=#0fbc11 icon="\u270f" block="Font for Watch"
