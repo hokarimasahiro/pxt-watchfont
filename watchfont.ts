@@ -181,7 +181,7 @@ namespace watchfont {
     }
     //% weight=93 blockGap=8
     //% blockId="曜日" block="%weekday"
-    export function colors(weekday: weekdays): number {
+    export function getWeekday(weekday: weekdays): number {
         return weekday;
     }
     /**
