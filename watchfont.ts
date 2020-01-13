@@ -1,5 +1,5 @@
 /**
- * Propotional Font Display blocks
+ * Font for watch Display blocks
  */
 enum rotate {
     //% block="top"
@@ -41,7 +41,7 @@ enum weekdays {
     //% block="土"
     sate = 13
 }
-//% weight=100 color=#0fbc11 icon="\u270f" block="Proportional Font"
+//% weight=100 color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
     //% shim=watchfont::getAlfa
     function getAlfa(n: number): number {
