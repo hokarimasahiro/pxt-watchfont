@@ -1,2 +1,2 @@
-declare namespace profont {
+declare namespace watchfont {
 }

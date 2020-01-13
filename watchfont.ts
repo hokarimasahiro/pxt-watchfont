@@ -11,26 +11,50 @@ enum rotate {
     //% block="right"
     right = 3
 }
+enum weekday {
+    //% block="日"
+    sun = 0,
+    //% block="月"
+    mon = 1,
+    //% block="火"
+    tue = 2,
+    //% block="水"
+    wed = 3,
+    //% block="木"
+    thu = 4,
+    //% block="金"
+    fri = 5,
+    //% block="土"
+    sat = 6,
+    //% block="日"
+    sune = 7,
+    //% block="月"
+    mone = 8,
+    //% block="火"
+    tuee = 9,
+    //% block="水"
+    wede = 10,
+    //% block="木"
+    thue = 11,
+    //% block="金"
+    frie = 12,
+    //% block="土"
+    sate = 13
+}
 //% weight=100 color=#0fbc11 icon="\u270f" block="Proportional Font"
-namespace profont {
-    //% shim=profont::getAlph
-    function getAlph(n: number): number {
+namespace watchfont {
+    //% shim=watchfont::getNumber
+    function getNumber(n: number): number {
         return 0;
     }
 
-    //% shim=profont::getKana
-    function getKana(n: number): number {
-        return 0;
-    }
-
-    //% shim=profont::getKanji
+    //% shim=watchfont::getKanji
     function getKanji(n: number): number {
         return 0;
     }
 
     declare const enum mojiSHift {
         Alfa = 0,
-        Kana = 1,
         Kanji = 2
     }
     let rotate: number = 0      // 0:top,1:left,2:under,3:right
@@ -42,12 +66,8 @@ namespace profont {
         let fontNum: number
         let fontStr: string
 
-        if ((charCode >= 0x20) && (charCode <= 0x5f))
-            fontNum = getAlph(charCode - 0x20);
-        else if ((kanaShift == mojiSHift.Alfa) && (charCode >= 0x60) && (charCode <= 0x7e))
-            fontNum = getAlph(charCode - 0x20);
-        else if ((kanaShift == mojiSHift.Kana) && (charCode >= 0x60) && (charCode <= 0xa0))
-            fontNum = getKana(charCode - 0x60);
+        if ((charCode >= 0x30) && (charCode <= 0x39))
+            fontNum = getNumber(charCode - 0x30);
         else if ((kanaShift == mojiSHift.Kanji) && (charCode >= 0x60) && (charCode <= 0x6f))
             fontNum = getKanji(charCode - 0x60);
         else
@@ -101,9 +121,6 @@ namespace profont {
                     case shiftAlfa().charCodeAt(0):	// \b
                         kanaShift = mojiSHift.Alfa
                         break
-                    case shiftKana().charCodeAt(0):	// \t
-                        kanaShift = mojiSHift.Kana
-                        break
                     case shiftKanji().charCodeAt(0):	// \n
                         kanaShift = mojiSHift.Kanji
                         break
@@ -129,15 +146,6 @@ namespace profont {
                 basic.pause(scroleSpeed)
             }
         }
-    }
-    /**
-     * スペースを取り除く
-     */
-    function trim(s: string): string {
-        for (let i = s.length - 1; i >= 0; i--) {
-            if (s.substr(i, 1) != " ") return s.substr(0, i + 1)
-        }
-        return s.substr(0, 1)
     }
     /**
      * TODO:数字を表示する
@@ -201,6 +209,27 @@ namespace profont {
                 break
             case 6:
                 weekday = "g"
+                break
+            case 7:
+                weekday = "h"
+                break
+            case 8:
+                weekday = "i"
+                break
+            case 9:
+                weekday = "j"
+                break
+            case 10:
+                weekday = "k"
+                break
+            case 11:
+                weekday = "l"
+                break
+            case 12:
+                weekday = "m"
+                break
+            case 13:
+                weekday = "n"
                 break
         }
         setYose(0)
@@ -378,9 +407,6 @@ namespace profont {
             case shiftAlfa().charCodeAt(0):	// \b
                 kanaShift = mojiSHift.Alfa
                 break
-            case shiftKana().charCodeAt(0):	// \t
-                kanaShift = mojiSHift.Kana
-                break
             case shiftKanji().charCodeAt(0):	// \n
                 kanaShift = mojiSHift.Kanji
                 break
@@ -395,8 +421,6 @@ namespace profont {
         switch (kanaShift) {
             case mojiSHift.Alfa:	// \b
                 return shiftAlfa()
-            case mojiSHift.Kana:	// \t
-                return shiftKana()
             case mojiSHift.Kanji:	// \n
                 return shiftKanji()
         }
