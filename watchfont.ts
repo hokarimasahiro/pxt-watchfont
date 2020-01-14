@@ -179,16 +179,20 @@ namespace watchfont {
         showString(m.toString() + "b" + (d < 10 ? "0" : "") + d.toString() + "a")
         setShift(svSHift)  // シフト状態を元に戻す
     }
+    /**
+     * TODO:曜日を選択する
+     * @param weekday 曜日。, eg: monday
+     */
     //% weight=93 blockGap=8
-    //% blockId="getWeekday" block="%weekday"
+    //% blockId="getWeekday" block="getWeekday %weekday"
     export function getWeekday(weekday: weekdays): number {
         return weekday;
     }
     /**
      * TODO:曜日を表示する
-     * @param w 曜日。, eg: 3
+     * @param w 曜日。, eg: monday
      */
-    //% blockId="showWeekday" block="%w=watchfont_getWeekday"
+    //% blockId="showWeekday" block="showWeekday %w=watchfont_getWeekday"
     //% weight=92 blockGap=8
     export function showWeekday(w: number): void {
         let weekday: string
