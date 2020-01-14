@@ -181,7 +181,7 @@ namespace watchfont {
     }
     /**
      * TODO:曜日を選択する
-     * @param weekday 曜日。, eg: monday
+     * @param weekday 曜日。, eg: 水
      */
     //% weight=93 blockGap=8
     //% blockId="getWeekday" block="曜日 %weekday"
@@ -190,7 +190,7 @@ namespace watchfont {
     }
     /**
      * TODO:曜日を表示する
-     * @param w 曜日。, eg: monday
+     * @param w 曜日。, eg: 水
      */
     //% blockId="showWeekday" block="曜日を表示 %w=getWeekday"
     //% weight=92 blockGap=8
