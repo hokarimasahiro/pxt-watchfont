@@ -12,33 +12,33 @@ enum rotate {
     right = 3
 }
 enum weekdays {
-    //% block="日曜日"
+    //% block="日"
     sun = 0,
-    //% block="月曜日"
+    //% block="月"
     mon = 1,
-    //% block="火曜日"
+    //% block="火"
     tue = 2,
-    //% block="水曜日"
+    //% block="水"
     wed = 3,
-    //% block="木曜日"
+    //% block="木"
     thu = 4,
-    //% block="金曜日"
+    //% block="金"
     fri = 5,
-    //% block="土曜日"
+    //% block="土"
     sat = 6,
-    //% block="Sunday"
+    //% block="Sun"
     sune = 7,
-    //% block="Monday"
+    //% block="Mon"
     mone = 8,
-    //% block="Tuesday"
+    //% block="Tue"
     tuee = 9,
-    //% block="Wednesday"
+    //% block="Wed"
     wede = 10,
-    //% block="Thursday"
+    //% block="Thu"
     thue = 11,
-    //% block="Friday"
+    //% block="Fri"
     frie = 12,
-    //% block="Saturday"
+    //% block="Sat"
     sate = 13
 }
 //% weight=100 color=#0fbc11 icon="\u270f" block="Font for Watch"
@@ -184,7 +184,7 @@ namespace watchfont {
      * @param weekday 曜日。, eg: monday
      */
     //% weight=93 blockGap=8
-    //% blockId="getWeekday" block="getWeekday %weekday"
+    //% blockId="getWeekday" block="曜日 %weekday"
     export function getWeekday(weekday: weekdays): number {
         return weekday;
     }
@@ -192,7 +192,7 @@ namespace watchfont {
      * TODO:曜日を表示する
      * @param w 曜日。, eg: monday
      */
-    //% blockId="showWeekday" block="showWeekday %w=watchfont_getWeekday"
+    //% blockId="showWeekday" block="曜日を表示 %w=getWeekday"
     //% weight=92 blockGap=8
     export function showWeekday(w: number): void {
         let weekday: string
