@@ -7,13 +7,12 @@
     },
     "files": [
         "README.md",
-        "watchfont.ts",
-        "shims.d.ts",
-        "font.cpp"
+        "watchfont.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": false,
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "installedVersion": "workspace:6e41eed8-8b22-42a0-e329-3a05950af05a"
 }

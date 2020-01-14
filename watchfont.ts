@@ -43,16 +43,6 @@ enum weekdays {
 }
 //% weight=100 color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
-    //% shim=watchfont::getAlfa
-    function getAlfa(n: number): number {
-        return 0;
-    }
-
-    //% shim=watchfont::getKanji
-    function getKanji(n: number): number {
-        return 0;
-    }
-
     declare const enum mojiSHift {
         Alfa = 0,
         Kanji = 2
@@ -62,14 +52,24 @@ namespace watchfont {
     let yose: number = -1       //-1:left,0:center,1:right
     let kanaShift: number = 0	//0:Alfa,1:Kana,2:Kanji
     function getFont(charCode: number): number {
+        let alfa1 = [
+                0, 29, 24600, 11512810, 11458282, 26808627, 11195713, 24,
+                465, 558, 10378, 4548, 34, 132, 2, 2184,
+                14894, 10209, 20137, 18107, 28831, 30386, 15010, 17020,
+                10922, 9902, 10, 42, 4433, 330, 17732, 17064
+        ];
+        let kanji1 = [
+                14389992, 32447, 64159, 9531465, 5471569, 9796937, 5635429, 1375521,
+                10143943, 32799975, 17809607, 32603629, 17810407, 33177832, 10144229, 1118480
+        ]
 
         let fontNum: number
         let fontStr: string
 
         if ((charCode >= 0x20) && (charCode <= 0x3f))
-            fontNum = getAlfa(charCode - 0x20);
+            fontNum = alfa1(charCode - 0x20);
         else if ((kanaShift == mojiSHift.Kanji) && (charCode >= 0x60) && (charCode <= 0x6f))
-            fontNum = getKanji(charCode - 0x60);
+            fontNum = kanji1(charCode - 0x60);
         else
             fontNum = 0;
 
