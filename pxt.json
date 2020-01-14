@@ -7,7 +7,9 @@
     },
     "files": [
         "README.md",
-        "watchfont.ts"
+        "watchfont.ts",
+        "shims.d.ts",
+        "font.cpp"
     ],
     "testFiles": [
         "test.ts"
