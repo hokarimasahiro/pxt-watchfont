@@ -130,7 +130,7 @@ namespace watchfont {
                 unplot(1, i)
             }
         }
-        dfont = font[wn % 10]
+        dfont = font[wn % 10 >> 0]
         for (let i = 0; i < 5; i++) {
             if ((dfont >> (9 - i) & 0x01) == 0x01) {
                 plot(3, i)
@@ -155,7 +155,7 @@ namespace watchfont {
     export function showSorobanNumber(n: number, s: number = 0, w: number = 5): void {
         let wn = Math.abs(n)
         for (let i = s + w - 1; i >= s; i--) {
-            let d = wn % 10
+            let d = wn % 10 >> 0
             if (wn == 0) {
                 unplot(i, 0)
                 unplot(i, 1)
@@ -164,7 +164,7 @@ namespace watchfont {
                 unplot(i, 4)
             } else {
                 if (d >= 5) plot(i, 0); else unplot(i, 0);
-                d = d % 5
+                d = d % 5 >> 0
                 if (d >= 4) plot(i, 1); else unplot(i, 1)
                 if (d >= 3) plot(i, 2); else unplot(i, 2)
                 if (d >= 2) plot(i, 3); else unplot(i, 3)
