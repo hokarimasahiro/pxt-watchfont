@@ -11,17 +11,16 @@ enum rotate {
     //% block="right"
     right = 3
 }
-//% weight=100 color=#0fbc11 icon="\u270f" block="Font for Watch"
+//% color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
     let rotate: number = 0      // 0:top,1:left,2:under,3:right
     let scroleSpeed: number = 200
     /**
-     * TODO:LEDを点ける
-     * @param x x座標。, eg: 1
-     * @param y y座標。, eg: 3
+     * LEDを点ける
+     * @param x x座標, eg: 1
+     * @param y y座標, eg: 3
      */
-    //% blockId="plot" block="plot %x %y"
-    //% weight=88 blockGap=8
+    //% block="plot %x %y"
     export function plot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -37,12 +36,11 @@ namespace watchfont {
         }
     }
     /**
-     * TODO:LEDを消す
-     * @param x x座標。, eg: 1
-     * @param y y座標。, eg: 3
+     * LEDを消す
+     * @param x x座標, eg: 1
+     * @param y y座標, eg: 3
      */
-    //% blockId="unplot" block="unplot %x %y"
-    //% weight=88 blockGap=8
+    //% block="unplot %x %y"
     export function unplot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -58,12 +56,32 @@ namespace watchfont {
         }
     }
     /**
-     * TODO:LEDの状態を取り出す
-     * @param x x座標。, eg: 1
-     * @param y y座標。, eg: 3
+     * ICONを表示する
+     * @param l0 0行目, eg: 01110
+     * @param l1 1行目, eg: 10001
+     * @param l2 2行目, eg: 00100
+     * @param l3 3行目, eg: 01010
+     * @param l4 4行目, eg: 11111
      */
-    //% blockId="point" block="point %x %y"
-    //% weight=88 blockGap=8
+    //% block="showIcon %x %y"
+    export function showIcon(l0: string, l1: string,l2: string, l3: string,l4: string): void {
+        let wicon=[l0,l1,l2,l3,l4];
+        for (let y=0;y<5;y++){
+            for (let x=0;x<5;x++){
+                if (wicon[y].charAt(x)=="1"){
+                    plot(x,y);
+                } else{
+                    unplot(x,y);
+                }
+            }
+        }
+    }
+    /**
+     * LEDの状態を取り出す
+     * @param x x座標, eg: 1
+     * @param y y座標, eg: 3
+     */
+    //% block="point %x %y"
     export function point(x: number, y: number): boolean {
         switch (rotate) {
             case 0:
@@ -80,29 +98,26 @@ namespace watchfont {
         return false
     }
     /**
-     * TODO:回転方向を設定する
-     * @param r rotate。, eg: left
+     * 回転方向を設定する
+     * @param r rotate, eg: left
      */
-    //% blockId="回転方向" block="回転方向 %r"
-    //% weight=90 blockGap=8
+    //% block="回転方向 %r"
     export function setRotatation(r: rotate): void {
         rotate = r
     }
     /**
-     * TODO:スクロール速度を設定する
-     * @param ss 数値。, eg: 100
+     * スクロール速度を設定する
+     * @param ss 数値, eg: 100
      */
-    //% blockId="スクロール速度" block="スクロール速度 %ss"
-    //% weight=88 blockGap=8
+    //% block="スクロール速度 %ss"
     export function setScroleSpeed(ss: number): void {
         scroleSpeed = ss
     }
     /**
-     * TODO: 2桁の数値を表示する
-     * @param n 表示する数値。, eg: 32
+     * 2桁の数値を表示する
+     * @param n 表示する数値, eg: 32
      */
-    //% blockId="2桁の数を表示" block="2桁の数を表示 %n"
-    //% weight=60 blockGap=8
+    //% block="2桁の数を表示 %n"
     export function showNumber2(n: number): void {
         const font: number[] = [1023, 31, 765, 703, 927, 951, 1015, 636, 891, 959]
         let dfont: number
@@ -145,13 +160,12 @@ namespace watchfont {
         }
     }
     /**
-     * TODO: 数値をそろばん形式で表示する
-     * @param n 表示する数値。, eg: 2048
-     * @param s 表示開始位置。, eg: 0
-     * @param w 表示桁数。, eg: 4
+     * 数値をそろばん形式で表示する
+     * @param n 表示する数値, eg: 2048
+     * @param s 表示開始位置, eg: 0
+     * @param w 表示桁数, eg: 4
      */
-    //% blockId="そろばん形式で数を表示" block="そろばん形式で数を表示 %n 表示位置 %s 桁数 %w"
-    //% weight=50 blockGap=8
+    //% block="そろばん形式で数を表示 %n 表示位置 %s 桁数 %w"
     export function showSorobanNumber(n: number, s: number = 0, w: number = 5): void {
         let wn = Math.abs(n)
         for (let i = s + w - 1; i >= s; i--) {
