@@ -63,7 +63,7 @@ namespace watchfont {
      * @param l3 3行目, eg: 01010
      * @param l4 4行目, eg: 11111
      */
-    //% block="showIcon %l0 %l1 %l2 %l3 %l4"
+    //% block="showIcon |%l0 %l1 %l2 %l3 %l4"
     export function showIcon(l0: string, l1: string,l2: string, l3: string,l4: string): void {
         let wicon=[l0,l1,l2,l3,l4];
         for (let y=0;y<5;y++){
