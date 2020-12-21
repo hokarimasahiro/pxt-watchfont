@@ -102,7 +102,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="Led状態 x %x|y %y"
+    //% block="LED x %x|y %y|が点灯している"
     export function point(x: number, y: number): boolean {
         switch (rotate) {
             case 0:
