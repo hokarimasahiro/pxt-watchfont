@@ -122,7 +122,7 @@ namespace watchfont {
      * 回転方向を設定する
      * @param r 回転方向
      */
-    //% block="回転方向 %r=rotate"
+    //% block="回転方向 %r"
     export function setRotatation(r: rotate): void {
         rotate = r
     }
@@ -184,7 +184,7 @@ namespace watchfont {
      * 数値をそろばん形式で表示する
      * @param n 表示する数値, eg: 2048
      * @param s 表示開始位置, eg: 0
-     * @param w 表示桁数, eg: 4
+     * @param w 表示桁数, eg: 5
      */
     //% block="そろばん形式で数を表示 %n|表示位置 %s|桁数 %w"
     export function showSorobanNumber(n: number, s: number = 0, w: number = 5): void {
