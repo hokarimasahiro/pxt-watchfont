@@ -20,7 +20,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="plot %x %y"
+    //% block="点灯" %x %y"
     export function plot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -40,7 +40,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="unplot %x %y"
+    //% block="消灯 %x %y"
     export function unplot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -61,7 +61,7 @@ namespace watchfont {
      * @param y y座標, eg: 3
      * @param b 明るさ, eg: 255
      */
-    //% block="plotBrightness %x %y %b"
+    //% block="点灯 %x %y %b"
     export function plotBrightness(x: number, y: number,b:number): void {
         switch (rotate) {
             case 0:
@@ -84,7 +84,7 @@ namespace watchfont {
      * @param l3 3行目, eg: 01010
      * @param l4 4行目, eg: 11111
      */
-    //% block="showIcon |%l0 %l1 %l2 %l3 %l4"
+    //% block="Icon表示 |%l0 %l1 %l2 %l3 %l4"
     export function showIcon(l0: string, l1: string,l2: string, l3: string,l4: string): void {
         let wicon=[l0,l1,l2,l3,l4];
         for (let y=0;y<5;y++){
@@ -102,7 +102,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="point %x %y"
+    //% block="Led状態 %x %y"
     export function point(x: number, y: number): boolean {
         switch (rotate) {
             case 0:
