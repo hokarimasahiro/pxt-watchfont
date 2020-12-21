@@ -40,7 +40,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="消灯 %x %y"
+    //% block="消灯 x|%x x|%y"
     export function unplot(x: number, y: number): void {
         switch (rotate) {
             case 0:
