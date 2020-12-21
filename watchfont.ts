@@ -122,7 +122,7 @@ namespace watchfont {
      * 回転方向を設定する
      * @param r 回転方向
      */
-    //% block="回転方向 %r=左"
+    //% block="回転方向 %r=rotate"
     export function setRotatation(r: rotate): void {
         rotate = r
     }
