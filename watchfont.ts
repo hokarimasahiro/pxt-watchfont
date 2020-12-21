@@ -20,7 +20,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="点灯 %x %y"
+    //% block="点灯 x %x y %y"
     export function plot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -40,7 +40,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="消灯 x %x x %y"
+    //% block="消灯 x %x y %y"
     export function unplot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -61,7 +61,7 @@ namespace watchfont {
      * @param y y座標, eg: 3
      * @param b 明るさ, eg: 255
      */
-    //% block="点灯 %x %y %b"
+    //% block="点灯 x %x y %y 明るさ %b"
     export function plotBrightness(x: number, y: number,b:number): void {
         switch (rotate) {
             case 0:
@@ -102,7 +102,7 @@ namespace watchfont {
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="Led状態 %x %y"
+    //% block="Led状態 x %x y %y"
     export function point(x: number, y: number): boolean {
         switch (rotate) {
             case 0:
