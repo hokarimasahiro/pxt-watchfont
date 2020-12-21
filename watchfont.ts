@@ -2,13 +2,13 @@
  * Font for watch Display blocks
  */
 enum rotate {
-    //% block="top"
+    //% block="上"
     top = 0,
-    //% block="left"
+    //% block="左"
     left = 1,
-    //% block="under"
+    //% block="下"
     under = 2,
-    //% block="right"
+    //% block="右"
     right = 3
 }
 //% color=#0fbc11 icon="\u270f" block="Font for Watch"
