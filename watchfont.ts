@@ -56,6 +56,27 @@ namespace watchfont {
         }
     }
     /**
+     * LEDを指定した明るさで点ける
+     * @param x x座標, eg: 1
+     * @param y y座標, eg: 3
+     * @param b 明るさ, eg: 255
+     */
+    //% block="plotBrightness %x %y %b"
+    export function plotBrightness(x: number, y: number,b:number): void {
+        switch (rotate) {
+            case 0:
+                led.plotBrightness(x, y,b); break;
+            case 1:
+                led.plotBrightness(y, 4 - x,b); break;
+            case 2:
+                led.plotBrightness(4 - x, 4 - y,b); break;
+            case 3:
+                led.plotBrightness(4 - y, x,b); break;
+            default:
+                led.plotBrightness(x, y,b); break;
+        }
+    }
+    /**
      * ICONを表示する
      * @param l0 0行目, eg: 01110
      * @param l1 1行目, eg: 10001
@@ -177,12 +198,12 @@ namespace watchfont {
                 unplot(i, 3)
                 unplot(i, 4)
             } else {
-                if (d >= 5) plot(i, 0); else unplot(i, 0);
+                if (d >= 5) plotBrightness(i, 0,255); else unplot(i, 0);
                 d = d % 5 >> 0
-                if (d >= 4) plot(i, 1); else unplot(i, 1)
-                if (d >= 3) plot(i, 2); else unplot(i, 2)
-                if (d >= 2) plot(i, 3); else unplot(i, 3)
-                if (d >= 1) plot(i, 4); else unplot(i, 4)
+                if (d >= 4) plotBrightness(i, 4,50); else unplot(i, 4)
+                if (d >= 3) plotBrightness(i, 3,50); else unplot(i, 3)
+                if (d >= 2) plotBrightness(i, 2,50); else unplot(i, 2)
+                if (d >= 1) plotBrightness(i, 1,50); else unplot(i, 1)
                 wn = Math.trunc(wn / 10)
             }
         }
