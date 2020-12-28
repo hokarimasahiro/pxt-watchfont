@@ -98,6 +98,22 @@ namespace watchfont {
         }
     }
     /**
+     * バーグラフを表示する
+     * @param n 数値
+     */
+    //% block="バーグラフ %n"
+    export function plotBarGraph(n: number): void {
+        for(let y=0;y<5;y++){
+            for (let x=0;x<5;x++){
+            if ((n/10)>(y*5+x)){
+                plot(x,(4-y));
+            } else{
+                unplot(x,(4-y));
+            }
+            }
+        }
+    }
+    /**
      * LEDの状態を取り出す
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
