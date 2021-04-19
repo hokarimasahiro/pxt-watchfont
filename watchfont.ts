@@ -216,10 +216,10 @@ namespace watchfont {
             } else {
                 if (d >= 5) plotBrightness(i, 0,255); else unplot(i, 0);
                 d = d % 5 >> 0
-                if (d >= 4) plotBrightness(i, 4,50); else unplot(i, 4)
-                if (d >= 3) plotBrightness(i, 3,50); else unplot(i, 3)
-                if (d >= 2) plotBrightness(i, 2,50); else unplot(i, 2)
-                if (d >= 1) plotBrightness(i, 1,50); else unplot(i, 1)
+                if (d >= 4) plotBrightness(i, 4,25); else unplot(i, 4)
+                if (d >= 3) plotBrightness(i, 3,25); else unplot(i, 3)
+                if (d >= 2) plotBrightness(i, 2,25); else unplot(i, 2)
+                if (d >= 1) plotBrightness(i, 1,25); else unplot(i, 1)
                 wn = Math.trunc(wn / 10)
             }
         }
