@@ -209,17 +209,18 @@ namespace watchfont {
             let d = wn % 10 >> 0
             if (wn == 0) {
                 unplot(i, 0)
+                plotBrightness(i, 0, 10)
                 unplot(i, 1)
                 if (n <= 0) plot(i, 2); else unplot(i, 2);
                 unplot(i, 3)
                 unplot(i, 4)
             } else {
-                if (d >= 5) plotBrightness(i, 0,255); else unplot(i, 0);
+                if (d >= 5) plotBrightness(i, 0, 255); else plotBrightness(i, 0, 10);
                 d = d % 5 >> 0
-                if (d >= 4) plotBrightness(i, 4,25); else unplot(i, 4)
-                if (d >= 3) plotBrightness(i, 3,25); else unplot(i, 3)
-                if (d >= 2) plotBrightness(i, 2,25); else unplot(i, 2)
-                if (d >= 1) plotBrightness(i, 1,25); else unplot(i, 1)
+                if (d >= 4) plotBrightness(i, 4,128); else unplot(i, 4)
+                if (d >= 3) plotBrightness(i, 3,128); else unplot(i, 3)
+                if (d >= 2) plotBrightness(i, 2,128); else unplot(i, 2)
+                if (d >= 1) plotBrightness(i, 1,128); else unplot(i, 1)
                 wn = Math.trunc(wn / 10)
             }
         }
