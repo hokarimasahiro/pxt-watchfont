@@ -13,6 +13,10 @@ enum rotate {
 }
 //% color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
+    let d50=25;
+    let d51=256;
+    let d10=0;
+    let d11=96;
     let rotate: number = 0      // 0:top,1:left,2:under,3:right
     let scroleSpeed: number = 200
     /**
@@ -208,19 +212,18 @@ namespace watchfont {
         for (let i = s + w - 1; i >= s; i--) {
             let d = wn % 10 >> 0
             if (wn == 0) {
-                unplot(i, 0)
-                plotBrightness(i, 0, 10)
-                unplot(i, 1)
-                if (n <= 0) plot(i, 2); else unplot(i, 2);
-                unplot(i, 3)
-                unplot(i, 4)
+                plotBrightness(i, 0, d50)
+                plotBrightness(i, 1, d10)
+                if (n <= 0) plotBrightness(i, 2, d11); else plotBrightness(i, 2, d10);
+                plotBrightness(i, 3, d10)
+                plotBrightness(i, 4, d10)
             } else {
-                if (d >= 5) plotBrightness(i, 0, 255); else plotBrightness(i, 0, 10);
+                if (d >= 5) plotBrightness(i, 0, d51); else plotBrightness(i, 0, d50);
                 d = d % 5 >> 0
-                if (d >= 4) plotBrightness(i, 4,128); else unplot(i, 4)
-                if (d >= 3) plotBrightness(i, 3,128); else unplot(i, 3)
-                if (d >= 2) plotBrightness(i, 2,128); else unplot(i, 2)
-                if (d >= 1) plotBrightness(i, 1,128); else unplot(i, 1)
+                if (d >= 4) plotBrightness(i, 4, d11); else plotBrightness(i, 4, d10);
+                if (d >= 3) plotBrightness(i, 3, d11); else plotBrightness(i, 3, d10);
+                if (d >= 2) plotBrightness(i, 2, d11); else plotBrightness(i, 2, d10);
+                if (d >= 1) plotBrightness(i, 1, d11); else plotBrightness(i, 1, d10);
                 wn = Math.trunc(wn / 10)
             }
         }
