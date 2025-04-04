@@ -173,7 +173,8 @@ namespace watchfont {
         unplot(2, 3)
         unplot(2, 4)
 
-        dfont = font[Math.trunc(wn / 10)]
+        if(wn < 10){dfont = 0}
+        else {dfont = font[Math.trunc(wn / 10)]};
         for (let i = 0; i < 5; i++) {
             if ((dfont >> (9 - i) & 0x01) == 0x01) {
                 plot(0, i)
