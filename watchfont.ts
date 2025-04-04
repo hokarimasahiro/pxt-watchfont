@@ -13,10 +13,10 @@ enum rotate {
 }
 //% color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
-    let d50=25;
-    let d51=256;
-    let d10=0;
-    let d11=96;
+    let d50=5;     // 5玉の無効時輝度
+    let d51=256;    // 5玉の有効時輝度
+    let d10=0;      // 1玉の無効時輝度
+    let d11=96;     // 1玉の有効時輝度
     let rotate: number = 0      // 0:top,1:left,2:under,3:right
     let scroleSpeed: number = 200
     /**
