@@ -2,13 +2,17 @@
  * Font for watch Display blocks
  */
 enum rotate {
-    //% block="上"
-    top = 0,
-    //% block="左"
+    //% block="up"
+    //% block.loc.ja="上"
+    up = 0,
+    //% block="left"
+    //% block.loc.ja="左"
     left = 1,
-    //% block="下"
-    under = 2,
-    //% block="右"
+    //% block="down"
+    //% block.loc.ja="下"
+    down = 2,
+    //% block="right"
+    //% block.loc.ja="右"
     right = 3
 }
 //% color=#0fbc11 icon="\u270f" block="Font for Watch"
@@ -20,11 +24,11 @@ namespace watchfont {
     let rotate: number = 0      // 0:top,1:left,2:under,3:right
     let scroleSpeed: number = 200
     /**
-     * LEDを点ける
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="点灯 x %x|y %y"
+    //% block="plot x %x|y %y"
+    //% block.loc.ja="点灯 x %x|y %y"
     export function plot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -40,11 +44,11 @@ namespace watchfont {
         }
     }
     /**
-     * LEDを消す
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="消灯 x %x|y %y"
+    //% block="unplot x %x|y %y"
+    //% block.loc.ja="消灯 x %x|y %y"
     export function unplot(x: number, y: number): void {
         switch (rotate) {
             case 0:
@@ -60,12 +64,12 @@ namespace watchfont {
         }
     }
     /**
-     * LEDを指定した明るさで点ける
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      * @param b 明るさ, eg: 255
      */
-    //% block="点灯 x %x|y %y|明るさ %b"
+    //% block="plot x %x|y %y|brightness %b"
+    //% block.loc.ja="点灯 x %x|y %y|明るさ %b"
     export function plotBrightness(x: number, y: number,b:number): void {
         switch (rotate) {
             case 0:
