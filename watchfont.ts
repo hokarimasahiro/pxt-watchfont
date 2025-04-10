@@ -17,7 +17,7 @@ enum rotate {
 }
 //% color=#0fbc11 icon="\u270f" block="Font for Watch"
 namespace watchfont {
-    let d50=5;     // 5玉の無効時輝度
+    let d50=5;      // 5玉の無効時輝度
     let d51=256;    // 5玉の有効時輝度
     let d10=0;      // 1玉の無効時輝度
     let d11=96;     // 1玉の有効時輝度
@@ -85,14 +85,14 @@ namespace watchfont {
         }
     }
     /**
-     * ICONを表示する
      * @param l0 0行目, eg: 01110
      * @param l1 1行目, eg: 10001
      * @param l2 2行目, eg: 00100
      * @param l3 3行目, eg: 01010
      * @param l4 4行目, eg: 11111
      */
-    //% block="Icon表示 |%l0 %l1 %l2 %l3 %l4"
+    //% block="show icon|%l0 %l1 %l2 %l3 %l4"
+    //% block.loc.ja="Icon表示 |%l0 %l1 %l2 %l3 %l4"
     export function showIcon(l0: string, l1: string,l2: string, l3: string,l4: string): void {
         let wicon=[l0,l1,l2,l3,l4];
         for (let y=0;y<5;y++){
@@ -106,10 +106,10 @@ namespace watchfont {
         }
     }
     /**
-     * バーグラフを表示する
      * @param n 数値
      */
-    //% block="バーグラフ %n"
+    //% block="show bargraph %n"
+    //% block.loc.ja="バーグラフ %n"
     export function plotBarGraph(n: number): void {
         for(let y=0;y<5;y++){
             for (let x=0;x<5;x++){
@@ -122,11 +122,11 @@ namespace watchfont {
         }
     }
     /**
-     * LEDの状態を取り出す
      * @param x x座標, eg: 1
      * @param y y座標, eg: 3
      */
-    //% block="LED x %x|y %y|が点灯している"
+    //% block="LED x %x|y %y|is plot"
+    //% block.loc.ja="LED x %x|y %y|が点灯している"
     export function point(x: number, y: number): boolean {
         switch (rotate) {
             case 0:
@@ -143,26 +143,26 @@ namespace watchfont {
         return false
     }
     /**
-     * 回転方向を設定する
      * @param r 回転方向
      */
-    //% block="回転方向 %r"
+    //% block="rotate %r"
+    //% block.loc.ja="回転方向 %r"
     export function setRotatation(r: rotate): void {
         rotate = r
     }
     /**
-     * スクロール速度を設定する
      * @param ss 数値, eg: 100
      */
-    //% block="スクロール速度 %ss"
+    //% block="set scroll speed to|%ss"
+    //% block.loc.ja="スクロール速度 %ss"
     export function setScroleSpeed(ss: number): void {
         scroleSpeed = ss
     }
     /**
-     * 2桁の数値を表示する
      * @param n 表示する数値, eg: 32
      */
-    //% block="2桁の数を表示 %n"
+    //% block="show 2digit number|%n"
+    //% block.loc.ja="2桁の数を表示 %n"
     export function showNumber2(n: number): void {
         const font: number[] = [1023, 31, 765, 703, 927, 951, 1015, 636, 891, 959]
         let dfont: number
@@ -206,12 +206,12 @@ namespace watchfont {
         }
     }
     /**
-     * 数値をそろばん形式で表示する
      * @param n 表示する数値, eg: 2048
      * @param s 表示開始位置, eg: 0
      * @param w 表示桁数, eg: 5
      */
-    //% block="そろばん形式で数を表示 %n|表示位置 %s|桁数 %w"
+    //% block="show number at soroban format|%n|pos|%s|digit|%w"
+    //% block.loc.ja="そろばん形式で数を表示 %n|表示位置 %s|桁数 %w"
     export function showSorobanNumber(n: number, s: number = 0, w: number = 5): void {
         let wn = Math.abs(n)
         for (let i = s + w - 1; i >= s; i--) {
