@@ -165,7 +165,7 @@ namespace watchfont {
     //% block.loc.ja="数を表示%n"
     export function showNumber(n: number): void {
         const font: number[] = [0x0C94A4C, 0x046108E, 0x1C1321E, 0x1E1124C, 0x0654BE2, 0x1F8783E, 0x0223A2E, 0x1F11110, 0x0E8BA2E, 0x0E8B888,	//  0- 9
-                                0x12AD6B2, 0x1294A52, 0x168CA97, 0x168CA36, 0x119D6F1, 0x17A5A36, 0x12A5AB2, 0x178CA94, 0x12ACAB2, 0x12ACE32]	// 10-19
+            0x17AD6B7, 0x1294A52, 0x178DE97, 0x178DA37, 0x119D6F1, 0x17A5E37, 0x17A5EB7, 0x178CA52, 0x17ADEB7, 0x17ADE37]	// 10-19
         let dfont: number
         let wn = Math.abs(n)
         if (wn > 99) {
