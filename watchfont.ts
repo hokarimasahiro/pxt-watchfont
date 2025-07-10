@@ -159,6 +159,68 @@ namespace watchfont {
         scroleSpeed = ss
     }
     /**
+     * @param n 表示する数値, eg: 12
+     */
+    //% block="show number|%n"
+    //% block.loc.ja="数を表示%n"
+    export function showNumber(n: number): void {
+        const font: number[] = [0x0C94A4C, 0x046108E, 0x1C1321E, 0x1E1124C, 0x0654BE2, 0x1F8783E, 0x0223A2E, 0x1F11110, 0x0E8BA2E, 0x0E8B888,	//  0- 9
+                                0x12AD6B2, 0x1294A52, 0x168CA97, 0x168CA36, 0x119D6F1, 0x17A5A36, 0x12A5AB2, 0x178CA94, 0x12ACAB2, 0x12ACE32]	// 10-19
+        let dfont: number
+        let wn = Math.abs(n)
+        if (wn > 99) {
+            showSorobanNumber(n)
+            return
+        }
+        if(wn>=20){
+            showNumber2(n)
+            return
+        }
+        unplot(2, 0)
+        unplot(2, 1)
+        if (n < 0) led.plot(2, 2); else led.unplot(2, 2);
+        unplot(2, 3)
+        unplot(2, 4)
+
+        dfont = font[wn]
+        for (let i = 0; i < 5; i++) {
+            for(let j=0;j<5;j++){
+                if ((dfont >> (24 - (i*5+j)) & 0x01) == 0x01) {
+                    plot(j, i)
+                } else {
+                    unplot(j, i)
+                }
+            }
+        }
+    }
+    /**
+     * @param n 表示する文字, eg: a
+     */
+    //% block="show char|%n"
+    //% block.loc.ja="文字を表示%n"
+    export function showChar(s: string): void {
+        const font: number[] = [0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000,	// 0x00-0x0f
+                                0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000, 0x0000000,	// 0x10-0x1f
+                                0x0000000, 0x0842008, 0x0A50000, 0x0AFABEA, 0x0ECBA6E, 0x1991133, 0x0C9324D, 0x0840000, 0x0442104, 0x0821088, 0x0051140, 0x0023880, 0x0000088, 0x0003800, 0x0000100, 0x0111110,   // 0x20-0x2f
+                                0x0C94A4C, 0x046108E, 0x1C1321E, 0x1E1124C, 0x0654BE2, 0x1F8783E, 0x0223A2E, 0x1F11110, 0x0E8BA2E, 0x0E8B888, 0x0040100, 0x0020088, 0x0222082, 0x00701C0, 0x0820888, 0x0E89804,   // 0x30-0x3f
+                                0x0E8D66C, 0x0C97A52, 0x1C9725C, 0x0E8420E, 0x1C94A5C, 0x1E8721E, 0x1E87210, 0x0E84E2E, 0x1297A52, 0x1C4211C, 0x1F10A4C, 0x12A6292, 0x108421E, 0x11DD631, 0x11CD671, 0x0C94A4C,   // 0x40-0x4f
+                                0x1C97210, 0x0C94986, 0x1C97251, 0x0E8305C, 0x1F21084, 0x1294A4C, 0x118C544, 0x118D771, 0x1293252, 0x1151084, 0x1E2221E, 0x0E4210E, 0x1041041, 0x0E1084E, 0x0450000, 0x000001F,   // 0x50-0x5f
+                                0x0820000, 0x0074A4F, 0x108725C, 0x007420E, 0x0213A4E, 0x0C9720E, 0x0647108, 0x0E9384C, 0x1087252, 0x0802108, 0x020084C, 0x10A6292, 0x0842106, 0x00DD631, 0x00E4A52, 0x0064A4C,   // 0x60-0x6f
+                                0x00E4B90, 0x00749C2, 0x0074210, 0x0032098, 0x0843907, 0x0094A4F, 0x008C544, 0x008C6BB, 0x0093192, 0x008A898, 0x00F111E, 0x0623086, 0x0842108, 0x1843118, 0x0003060, 0x0000000]   // 0x70-0x7f
+        let dfont: number
+
+        dfont = font[s.charCodeAt(0)]
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if ((dfont >> (24 - (i * 5 + j)) & 0x01) == 0x01) {
+                    plot(j, i)
+                } else {
+                    unplot(j, i)
+                }
+            }
+        }
+    }
+    /**
      * @param n 表示する数値, eg: 32
      */
     //% block="show 2digit number|%n"
