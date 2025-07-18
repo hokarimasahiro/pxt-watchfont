@@ -226,7 +226,7 @@ namespace watchfont {
     //% block="show 2digit number|%n"
     //% block.loc.ja="2桁の数を表示 %n"
     export function showNumber2(n: number): void {
-        const font: number[] = [1023, 31, 765, 703, 927, 951, 1015, 636, 891, 959]
+        const font: number[] = [1023, 31, 765, 703, 479, 951, 1015, 636, 891, 959]
         let dfont: number
         let wn = Math.abs(n)
         if (wn > 99) {
