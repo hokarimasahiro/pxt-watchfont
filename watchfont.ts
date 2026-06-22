@@ -172,7 +172,7 @@ namespace watchfont {
             showSorobanNumber(n)
             return
         }
-        if(wn>=20){
+        if(wn>=20 or N<0){
             showNumber2(n)
             return
         }
