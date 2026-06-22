@@ -230,7 +230,7 @@ namespace watchfont {
         let dfont: number
         let wn = Math.abs(n)
         if (wn > 99) {
-            plot(0, 0)
+            plot(2, 0)
             return
         }
         unplot(2, 0)
