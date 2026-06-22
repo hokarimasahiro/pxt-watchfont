@@ -4,7 +4,7 @@ basic.forever(function () {
         basic.pause(10)
     }
     basic.pause(1000);
-    for (let b = 0; b < 100; b++) {
+    for (let b = -30; b < 100; b++) {
         watchfont.showNumber(b)
         if(b<20){
             basic.pause(200)}
